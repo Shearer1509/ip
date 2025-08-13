@@ -51,6 +51,48 @@ public class Sheares {
                     System.out.println("      " + curr2);
                     System.out.println(zero);
                     break;
+                case "todo":
+                    String[] arr = input.split("todo ");
+                    String info = arr[1];
+                    Task curr3 = new Todo(info);
+                    ans[numOfTasks] = curr3;
+                    numOfTasks++;
+                    System.out.println(zero);
+                    System.out.println("    Got it. I've added this task: ");
+                    System.out.println("      " + curr3);
+                    System.out.println("    Now you have " + numOfTasks+ " tasks in your list.");
+                    System.out.println(zero);
+                    break;
+                case "deadline":
+                    String[] arr2 = input.split("deadline ");
+                    String info2 = arr2[1];
+                    String[] arr3 = info2.split(" /by ");
+                    Task curr4 = new Deadline(arr3[0], arr3[1]);
+                    ans[numOfTasks] = curr4;
+                    numOfTasks++;
+                    System.out.println(zero);
+                    System.out.println("    Got it. I've added this task: ");
+                    System.out.println("      " + curr4);
+                    System.out.println("    Now you have " + numOfTasks+ " tasks in your list.");
+                    System.out.println(zero);
+                    break;
+                case "event":
+                    String[] arr4 = input.split("event ");
+                    String info3 = arr4[1];
+                    String[] arr5 = info3.split(" /from ");
+                    String des = arr5[0];
+                    String rest = arr5[1];
+                    String[] last = rest.split(" /to ");
+
+                    Task curr5 = new Event(des, last[0], last[1]);
+                    ans[numOfTasks] = curr5;
+                    numOfTasks++;
+                    System.out.println(zero);
+                    System.out.println("    Got it. I've added this task: ");
+                    System.out.println("      " + curr5);
+                    System.out.println("    Now you have " + numOfTasks+ " tasks in your list.");
+                    System.out.println(zero);
+                    break;
                 default:
                     ans[numOfTasks] = new Task(input);
                     System.out.println(zero);
