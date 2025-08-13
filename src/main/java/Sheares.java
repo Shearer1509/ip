@@ -4,7 +4,8 @@ import java.util.Scanner;
 public class Sheares {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Task[] ans = new Task[100];
+        //Task[] ans = new Task[100];
+        ArrayList<Task> ans = new ArrayList<>();
         int numOfTasks = 0;
         String zero = "    _____________________________";
         String first = "    Hello! I'm Sheares";
@@ -29,14 +30,14 @@ public class Sheares {
                         System.out.println(zero);
                         System.out.println("    Here are the tasks in your list:");
                         for (int i = 0; i < numOfTasks; i++) {
-                            Task curr = ans[i];
+                            Task curr = ans.get(i);
                             System.out.println("    " + (i + 1) + "." + curr);
                         }
                         System.out.println(zero);
                         break;
                     case "mark":
                         int index = Integer.parseInt(line[1]);
-                        Task curr = ans[index - 1];
+                        Task curr = ans.get(index - 1);
                         curr.mark();
                         System.out.println(zero);
                         System.out.println("    Nice! I've marked this task as done:");
@@ -45,11 +46,40 @@ public class Sheares {
                         break;
                     case "unmark":
                         int index2 = Integer.parseInt(line[1]);
-                        Task curr2 = ans[index2 - 1];
+                        Task curr2 = ans.get(index2 - 1);
                         curr2.unmark();
                         System.out.println(zero);
                         System.out.println("    OK, I've marked this task as not done yet:");
                         System.out.println("      " + curr2);
+                        System.out.println(zero);
+                        break;
+                    case "delete":
+                        if (numOfTasks == 0) {
+                            System.out.println(zero);
+                            System.out.println("    There are no current tasks to delete");
+                            System.out.println(zero);
+                            break;
+                        }
+                        int index3 = Integer.parseInt(line[1]);
+                        if (index3 < 0) {
+                            System.out.println(zero);
+                            System.out.println("    Input is negative: Pls pick a number from 0 to " + numOfTasks);
+                            System.out.println(zero);
+                            break;
+                        }
+                        if (index3 > numOfTasks) {
+                            System.out.println(zero);
+                            System.out.println("    Max task number you can pick is " + numOfTasks);
+                            System.out.println(zero);
+                            break;
+                        }
+                        Task curr9 = ans.get(index3 - 1);
+                        ans.remove(index3-1);
+                        numOfTasks--;
+                        System.out.println(zero);
+                        System.out.println("    Noted. I've removed this task:");
+                        System.out.println("      " + curr9);
+                        System.out.println("    Now you have " + numOfTasks + " tasks in the list.");
                         System.out.println(zero);
                         break;
                     case "todo":
@@ -59,7 +89,8 @@ public class Sheares {
                         String[] arr = input.split("todo ");
                         String info = arr[1];
                         Task curr3 = new Todo(info);
-                        ans[numOfTasks] = curr3;
+                        //ans[numOfTasks] = curr3;
+                        ans.add(curr3);
                         numOfTasks++;
                         System.out.println(zero);
                         System.out.println("    Got it. I've added this task:");
@@ -78,7 +109,8 @@ public class Sheares {
                         }
                         String[] arr3 = info2.split(" /by ");
                         Task curr4 = new Deadline(arr3[0], arr3[1]);
-                        ans[numOfTasks] = curr4;
+                        //ans[numOfTasks] = curr4;
+                        ans.add(curr4);
                         numOfTasks++;
                         System.out.println(zero);
                         System.out.println("    Got it. I've added this task:");
@@ -104,7 +136,8 @@ public class Sheares {
                         String[] last = rest.split(" /to ");
 
                         Task curr5 = new Event(des, last[0], last[1]);
-                        ans[numOfTasks] = curr5;
+                        //ans[numOfTasks] = curr5;
+                        ans.add(curr5);
                         numOfTasks++;
                         System.out.println(zero);
                         System.out.println("    Got it. I've added this task:");
