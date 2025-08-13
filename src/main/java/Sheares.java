@@ -26,7 +26,7 @@ public class Sheares {
                     break;
                 case "list" :
                     System.out.println(zero);
-                    System.out.println("    Here are the tasks in your list: ");
+                    System.out.println("    Here are the tasks in your list:");
                     for (int i = 0; i < numOfTasks; i++) {
                         Task curr = ans[i];
                         System.out.println("    " + (i+1) + "." + curr);
@@ -58,9 +58,9 @@ public class Sheares {
                     ans[numOfTasks] = curr3;
                     numOfTasks++;
                     System.out.println(zero);
-                    System.out.println("    Got it. I've added this task: ");
+                    System.out.println("    Got it. I've added this task:");
                     System.out.println("      " + curr3);
-                    System.out.println("    Now you have " + numOfTasks+ " tasks in your list.");
+                    System.out.println("    Now you have " + numOfTasks+ " tasks in the list.");
                     System.out.println(zero);
                     break;
                 case "deadline":
@@ -71,9 +71,9 @@ public class Sheares {
                     ans[numOfTasks] = curr4;
                     numOfTasks++;
                     System.out.println(zero);
-                    System.out.println("    Got it. I've added this task: ");
+                    System.out.println("    Got it. I've added this task:");
                     System.out.println("      " + curr4);
-                    System.out.println("    Now you have " + numOfTasks+ " tasks in your list.");
+                    System.out.println("    Now you have " + numOfTasks+ " tasks in the list.");
                     System.out.println(zero);
                     break;
                 case "event":
@@ -88,9 +88,9 @@ public class Sheares {
                     ans[numOfTasks] = curr5;
                     numOfTasks++;
                     System.out.println(zero);
-                    System.out.println("    Got it. I've added this task: ");
+                    System.out.println("    Got it. I've added this task:");
                     System.out.println("      " + curr5);
-                    System.out.println("    Now you have " + numOfTasks+ " tasks in your list.");
+                    System.out.println("    Now you have " + numOfTasks+ " tasks in the list.");
                     System.out.println(zero);
                     break;
                 default:
