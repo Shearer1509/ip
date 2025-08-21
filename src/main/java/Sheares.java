@@ -1,12 +1,84 @@
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
+import java.io.File;
 
 public class Sheares {
+
+
+    public static void helper(ArrayList<Task> ls) {
+        try {
+            FileWriter fw = new FileWriter("./data/duke.txt");
+            for (Task task : ls) {
+                String output = task.taskToStr();
+                fw.write(output + System.lineSeparator());
+            }
+            fw.close();
+        } catch (IOException e) {
+            System.out.println("file writing off");
+        }
+    }
+
+
     public static void main(String[] args) {
+
+        String filePath = "./data/duke.txt";
+        Path path = Paths.get(filePath);
         Scanner sc = new Scanner(System.in);
-        //Task[] ans = new Task[100];
         ArrayList<Task> ans = new ArrayList<>();
         int numOfTasks = 0;
+
+        try {
+            Path parentDir = path.getParent();
+            if (parentDir != null && !Files.exists(parentDir)) {
+                Files.createDirectories(parentDir);
+            }
+
+            // Step 3: Check if the file itself exists. If not, create it.
+            if (!Files.exists(path)) {
+                Files.createFile(path);
+                return; // Nothing to read yet, so we exit the method.
+            }
+
+            // Step 4: If the file exists, proceed to read from it using a Scanner.
+            System.out.println("Your progress has been saved!");
+            Scanner s = new Scanner(path);
+            while (s.hasNext()) {
+                String input = s.nextLine();
+                String[] pieces = input.split(" \\| ");
+                if (pieces.length == 3) {
+                    Task t = new Todo(pieces[2]);
+                    if (Objects.equals(pieces[1], "1")) {
+                        t.mark();
+                    }
+                    ans.add(t);
+                } else {
+                    if (Objects.equals(pieces[0], "D")) {
+                        Task t = new Deadline(pieces[2], pieces[3]);
+                        if (Objects.equals(pieces[1], "1")) {
+                            t.mark();
+                        }
+                        ans.add(t);
+                    } else {
+                        String check = pieces[3];
+                        String[] again = check.split("-");
+                        Task t = new Event(pieces[2], again[0], again[1]);
+                        if (Objects.equals(pieces[1], "1")) {
+                            t.mark();
+                        }
+                        ans.add(t);
+                    }
+                }
+                numOfTasks++;
+            }
+        } catch (IOException e) {
+            System.err.println("lol idk man");
+        }
+
         String zero = "    _____________________________";
         String first = "    Hello! I'm Sheares";
         String second = "    What can i do for you?";
@@ -43,6 +115,7 @@ public class Sheares {
                         System.out.println("    Nice! I've marked this task as done:");
                         System.out.println("      " + curr);
                         System.out.println(zero);
+                        helper(ans);
                         break;
                     case "unmark":
                         int index2 = Integer.parseInt(line[1]);
@@ -52,6 +125,7 @@ public class Sheares {
                         System.out.println("    OK, I've marked this task as not done yet:");
                         System.out.println("      " + curr2);
                         System.out.println(zero);
+                        helper(ans);
                         break;
                     case "delete":
                         if (numOfTasks == 0) {
@@ -81,6 +155,7 @@ public class Sheares {
                         System.out.println("      " + curr9);
                         System.out.println("    Now you have " + numOfTasks + " tasks in the list.");
                         System.out.println(zero);
+                        helper(ans);
                         break;
                     case "todo":
                         if (!input.contains("todo ")) {
@@ -97,6 +172,7 @@ public class Sheares {
                         System.out.println("      " + curr3);
                         System.out.println("    Now you have " + numOfTasks + " tasks in the list.");
                         System.out.println(zero);
+                        helper(ans);
                         break;
                     case "deadline":
                         if (!input.contains("deadline ")) {
@@ -117,6 +193,7 @@ public class Sheares {
                         System.out.println("      " + curr4);
                         System.out.println("    Now you have " + numOfTasks + " tasks in the list.");
                         System.out.println(zero);
+                        helper(ans);
                         break;
                     case "event":
                         if (!input.contains("event ")) {
@@ -144,6 +221,7 @@ public class Sheares {
                         System.out.println("      " + curr5);
                         System.out.println("    Now you have " + numOfTasks + " tasks in the list.");
                         System.out.println(zero);
+                        helper(ans);
                         break;
                     default:
                         throw new WrongInputException();
