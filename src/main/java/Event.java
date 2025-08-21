@@ -11,4 +11,12 @@ public class Event extends Task{
     public String toString() {
         return "[E]" + super.toString() + " (from: " + this.from + " to: " + this.to + ")";
     }
+
+    public String taskToStr() {
+        String num = super.isDone ? "1" : "0";
+        StringBuilder sb = new StringBuilder();
+        sb.append('E').append(" | ").append(num).append(" | ").append(super.des).append(" | ").
+                append(this.from).append('-').append(this.to);
+        return sb.toString();
+    }
 }

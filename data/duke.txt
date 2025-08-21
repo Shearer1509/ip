@@ -1,0 +1,3 @@
+T | 0 | drink water
+D | 0 | read book | 2pm today
+E | 1 | party | 3-6

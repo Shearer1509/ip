@@ -1,4 +1,4 @@
-public class Task {
+abstract public class Task {
     protected String des;
     protected boolean isDone;
 
@@ -18,6 +18,8 @@ public class Task {
     public String getIcon() {
         return isDone ? "X" : " ";
     }
+
+    abstract public String taskToStr();
 
     @Override
     public String toString() {
