@@ -2,6 +2,9 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -58,7 +61,7 @@ public class Sheares {
                     ans.add(t);
                 } else {
                     if (Objects.equals(pieces[0], "D")) {
-                        Task t = new Deadline(pieces[2], pieces[3]);
+                        Task t = new Deadline(pieces[2], LocalDate.parse(pieces[3]));
                         if (Objects.equals(pieces[1], "1")) {
                             t.mark();
                         }
@@ -184,7 +187,9 @@ public class Sheares {
                             throw new NumberOfArgumentsException("deadline");
                         }
                         String[] arr3 = info2.split(" /by ");
-                        Task curr4 = new Deadline(arr3[0], arr3[1]);
+
+                        LocalDate deadline = LocalDate.parse(arr3[1]);
+                        Task curr4 = new Deadline(arr3[0], deadline);
                         //ans[numOfTasks] = curr4;
                         ans.add(curr4);
                         numOfTasks++;
@@ -233,6 +238,10 @@ public class Sheares {
             } catch (NumberOfArgumentsException f) {
                 System.out.println(zero);
                 System.out.println(f.getMsg());
+                System.out.println(zero);
+            } catch (DateTimeParseException e) {
+                System.out.println(zero);
+                System.out.println("Pls input date in format yyyy-mm-dd");
                 System.out.println(zero);
             }
         }
