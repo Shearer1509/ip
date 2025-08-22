@@ -28,6 +28,11 @@ abstract public class Task {
         return isDone ? "X" : " ";
     }
 
+
+    public String getDescription() {
+        return this.des;
+    }
+
     /**
      * returns String representation that we write to data file
      */
