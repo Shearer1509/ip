@@ -1,0 +1,37 @@
+public class DeleteCommand extends Command {
+
+    private int index;
+    public DeleteCommand(int index) {
+        super();
+        this.index = index;
+    }
+
+    @Override
+    public void execute(TaskList ls, Ui ui, Storage storage) {
+
+        if (ls.size() == 0) {
+
+            System.out.println("    There are no tasks to delete");
+            return;
+        }
+        if (this.index < 0) {
+
+            System.out.println("    Input is negative: Pls pick a number from 1 to " + ls.size());
+            return;
+        }
+
+        if (this.index >= ls.size()) {
+
+            System.out.println("    Input exceeds number of tasks: Pls pick a number from 1 to " + ls.size());
+            return;
+        }
+        Task task = ls.get(this.index);
+        ls.delete(this.index);
+        storage.save(ls);
+
+        System.out.println("    Noted. I've removed this task:");
+        System.out.println("      " + task);
+        System.out.println("    Now you have " + ls.size() + " tasks in the list.");
+
+    }
+}

@@ -1,3 +1,1 @@
-D | 1 | read | 2019-12-01
-E | 0 | party | 2pm-6
-T | 1 | read
+T | 0 | read book tdy
