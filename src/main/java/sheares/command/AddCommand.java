@@ -1,5 +1,9 @@
-import java.time.LocalDate;
+package sheares.command;
 
+import java.time.LocalDate;
+import sheares.*;
+
+import sheares.task.*;
 public class AddCommand extends Command{
 
     String des;

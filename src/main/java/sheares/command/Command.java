@@ -1,3 +1,5 @@
+package sheares.command;
+import sheares.*;
 abstract public class Command {
 
     boolean isExit;

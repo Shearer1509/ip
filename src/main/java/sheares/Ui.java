@@ -1,3 +1,4 @@
+package sheares;
 import java.util.Scanner;
 
 public class Ui {

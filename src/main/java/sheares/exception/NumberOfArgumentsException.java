@@ -1,3 +1,5 @@
+
+package sheares.exception;
 public class NumberOfArgumentsException extends DukeException {
     private String msg;
     public NumberOfArgumentsException(String command) {

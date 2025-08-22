@@ -1,3 +1,4 @@
+package sheares.exception;
 public class DukeException extends Exception {
     private String msg;
     public DukeException() {
