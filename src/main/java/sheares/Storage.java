@@ -26,6 +26,10 @@ public class Storage {
         this.filePath = filePath;
     }
 
+    /**
+     * from a given current TaskList, write all the data into the filePath
+     * @param ls
+     */
     public void save(TaskList ls) {
         try {
             FileWriter fw = new FileWriter("./data/duke.txt");
@@ -40,6 +44,11 @@ public class Storage {
         }
     }
 
+    /**
+     *
+     * @return an ArrayList of Tasks that represents the past data of the chatbot that was saved
+     * @throws DukeException
+     */
     public ArrayList<Task> load() throws DukeException {
         //String filePath = "./data/duke.txt";
         Path path = Paths.get(this.filePath);

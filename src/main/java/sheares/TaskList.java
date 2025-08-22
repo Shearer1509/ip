@@ -3,6 +3,9 @@ import sheares.task.Task;
 
 import java.util.ArrayList;
 
+/**
+ * helper data strcuture to store Tasks for chatbot
+ */
 public class TaskList {
     ArrayList<Task> ls;
 

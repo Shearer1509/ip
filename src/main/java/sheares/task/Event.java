@@ -1,4 +1,8 @@
 package sheares.task;
+
+/**
+ * represents an Event Type Task
+ */
 public class Event extends Task{
     private final String from;
     private final String to;
@@ -13,6 +17,9 @@ public class Event extends Task{
         return "[E]" + super.toString() + " (from: " + this.from + " to: " + this.to + ")";
     }
 
+    /**
+     * returns String representation that we write to data file
+     */
     public String taskToStr() {
         String num = super.isDone ? "1" : "0";
         StringBuilder sb = new StringBuilder();

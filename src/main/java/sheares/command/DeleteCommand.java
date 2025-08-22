@@ -1,4 +1,6 @@
 package sheares.command;
+import sheares.*;
+import sheares.task.*;
 
 import sheares.Storage;
 import sheares.TaskList;

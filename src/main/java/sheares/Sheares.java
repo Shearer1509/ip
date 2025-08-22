@@ -5,6 +5,9 @@ import sheares.exception.DukeException;
 
 import java.time.format.DateTimeParseException;
 
+/**
+ * Entry point of the chatbot
+ */
 public class Sheares {
 
     private Storage storage;
