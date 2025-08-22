@@ -1,3 +1,7 @@
+package sheares.command;
+
+import sheares.*;
+
 public class ExitCommand extends Command {
 
     public boolean isExit;

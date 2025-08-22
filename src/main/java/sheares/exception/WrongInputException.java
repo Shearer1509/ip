@@ -1,3 +1,4 @@
+package sheares.exception;
 public class WrongInputException extends DukeException {
     private String msg;
     public WrongInputException() {

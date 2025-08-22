@@ -1,1 +1,2 @@
 T | 0 | read book tdy
+E | 0 | party | 3-6

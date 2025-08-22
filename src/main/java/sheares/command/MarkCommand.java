@@ -1,3 +1,6 @@
+package sheares.command;
+import sheares.*;
+import sheares.task.*;
 public class MarkCommand extends Command {
 
     private int index;

@@ -1,3 +1,7 @@
+package sheares.command;
+import sheares.*;
+import sheares.task.*;
+
 public class UnMarkCommand extends Command {
 
     private int index;

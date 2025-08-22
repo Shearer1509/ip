@@ -1,3 +1,6 @@
+package sheares;
+import sheares.task.Task;
+
 import java.util.ArrayList;
 
 public class TaskList {
