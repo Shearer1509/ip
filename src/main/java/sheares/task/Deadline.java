@@ -1,10 +1,11 @@
 package sheares.task;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Deadline extends Task{
 
-    private LocalDate deadline;
+    private final LocalDate deadline;
     public Deadline(String des, LocalDate deadline) {
         super(des);
         this.deadline = deadline;

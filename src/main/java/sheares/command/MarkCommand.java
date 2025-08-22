@@ -1,9 +1,17 @@
 package sheares.command;
-import sheares.*;
-import sheares.task.*;
+
+
+import sheares.Storage;
+import sheares.TaskList;
+import sheares.Ui;
+import sheares.task.Task;
+
+/**
+ * represents command to mark task as complete
+ */
 public class MarkCommand extends Command {
 
-    private int index;
+    private final int index;
     public MarkCommand(int index) {
         super();
         this.index = index;
@@ -14,10 +22,7 @@ public class MarkCommand extends Command {
         Task curr = ls.get(this.index);
         curr.mark();
         storage.save(ls);
-
         System.out.println("    Nice! I've marked this task as done:");
         System.out.println("      " + curr);
-
-
     }
 }

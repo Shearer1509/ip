@@ -1,7 +1,7 @@
-
 package sheares.exception;
+
 public class NumberOfArgumentsException extends DukeException {
-    private String msg;
+    private final String msg;
     public NumberOfArgumentsException(String command) {
         this.msg = "    Wrong number of arguments to " + command;
     }

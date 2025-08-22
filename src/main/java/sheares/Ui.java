@@ -29,9 +29,6 @@ public class Ui {
         System.out.println("    This is your first time using this chatbot");
         this.showLine();
     }
-
-
-
     public String readCommand() {
         return scanner.nextLine().trim();
     }

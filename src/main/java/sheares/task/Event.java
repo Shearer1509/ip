@@ -1,7 +1,7 @@
 package sheares.task;
 public class Event extends Task{
-    private String from;
-    private String to;
+    private final String from;
+    private final String to;
     public Event(String des, String from, String to) {
         super(des);
         this.from = from;

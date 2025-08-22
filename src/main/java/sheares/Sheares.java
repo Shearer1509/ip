@@ -1,18 +1,9 @@
-
 package sheares;
+
+import sheares.command.Command;
 import sheares.exception.DukeException;
-import sheares.command.*;
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.DateTimeException;
-import java.time.LocalDate;
+
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
-import java.io.File;
 
 public class Sheares {
 
@@ -49,9 +40,7 @@ public class Sheares {
                 ui.showLine();
             }
         }
-
     }
-
 
     public static void main(String[] args) {
         new Sheares("./data/duke.txt").run();
