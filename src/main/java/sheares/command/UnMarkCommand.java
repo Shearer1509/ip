@@ -1,10 +1,16 @@
 package sheares.command;
-import sheares.*;
-import sheares.task.*;
 
+import sheares.Storage;
+import sheares.TaskList;
+import sheares.Ui;
+import sheares.task.Task;
+
+/**
+ * represents task to unmark task (incomplete)
+ */
 public class UnMarkCommand extends Command {
 
-    private int index;
+    private final int index;
     public UnMarkCommand(int index) {
         super();
         this.index = index;
@@ -15,10 +21,7 @@ public class UnMarkCommand extends Command {
         Task curr = ls.get(this.index);
         curr.unmark();
         storage.save(ls);
-
         System.out.println("    OK, I've marked this task as not done yet:");
         System.out.println("      " + curr);
-
-
     }
 }
