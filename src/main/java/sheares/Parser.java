@@ -31,6 +31,14 @@ public class Parser {
 
                     return new DeleteCommand(index3 - 1);
 
+                case "find":
+                    if (!input.contains("find ")) {
+                        throw new NumberOfArgumentsException("find");
+                    }
+                    String[] arr7 = input.split("find ");
+                    String keyWord = arr7[1];
+                    return new FindCommand(keyWord);
+
                 case "todo":
                     if (!input.contains("todo ")) {
                         throw new NumberOfArgumentsException("todo");
