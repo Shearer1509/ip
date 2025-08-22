@@ -2,6 +2,9 @@ package sheares.command;
 
 import sheares.*;
 
+/**
+ * represents command to exit chatbot
+ */
 public class ExitCommand extends Command {
 
     public boolean isExit;

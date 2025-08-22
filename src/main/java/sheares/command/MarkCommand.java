@@ -1,6 +1,10 @@
 package sheares.command;
 import sheares.*;
 import sheares.task.*;
+
+/**
+ * represents command to mark task as done
+ */
 public class MarkCommand extends Command {
 
     private int index;

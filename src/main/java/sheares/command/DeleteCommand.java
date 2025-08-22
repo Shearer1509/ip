@@ -2,6 +2,9 @@ package sheares.command;
 import sheares.*;
 import sheares.task.*;
 
+/**
+ * represents command to delete task from list
+ */
 public class DeleteCommand extends Command {
 
     private int index;

@@ -2,6 +2,9 @@ package sheares.command;
 import sheares.*;
 import sheares.task.*;
 
+/**
+ * represents command to mark task as undone
+ */
 public class UnMarkCommand extends Command {
 
     private int index;

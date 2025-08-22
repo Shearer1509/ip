@@ -4,6 +4,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import sheares.command.*;
 import sheares.exception.*;
+
+/**
+ * helper class that parses user inputs, and either issues command or throws exception
+ * depending on user input
+ */
 public class Parser {
     public static Command parse(String input) throws DukeException, DateTimeParseException {
             String[] line = input.split(" ");

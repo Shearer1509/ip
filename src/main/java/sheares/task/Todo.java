@@ -1,4 +1,8 @@
 package sheares.task;
+
+/**
+ * represents a Todo Type Task
+ */
 public class Todo extends Task {
 
     public Todo(String des) {
@@ -10,6 +14,9 @@ public class Todo extends Task {
         return "[T]" + super.toString();
     }
 
+    /**
+     * returns String representation that we write to data file
+     */
     @Override
     public String taskToStr() {
         String num = super.isDone ? "1" : "0";

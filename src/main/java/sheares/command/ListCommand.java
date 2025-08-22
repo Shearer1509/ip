@@ -1,6 +1,10 @@
 package sheares.command;
 import sheares.*;
 import sheares.task.*;
+
+/**
+ * represents command to list all tasks in list
+ */
 public class ListCommand extends Command {
 
     public ListCommand() {

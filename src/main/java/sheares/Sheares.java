@@ -14,6 +14,9 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.io.File;
 
+/**
+ * Entry point of the chatbot
+ */
 public class Sheares {
 
     private Storage storage;

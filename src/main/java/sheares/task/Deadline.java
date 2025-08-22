@@ -2,6 +2,9 @@ package sheares.task;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * represents a Deadline Type Task
+ */
 public class Deadline extends Task{
 
     private LocalDate deadline;
@@ -16,6 +19,9 @@ public class Deadline extends Task{
         return "[D]" + super.toString() + " (by: " + formatted_deadline + ")";
     }
 
+    /**
+     * returns String representation that we write to data file
+     */
     @Override
     public String taskToStr() {
         String num = super.isDone ? "1" : "0";

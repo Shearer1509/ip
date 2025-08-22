@@ -1,4 +1,8 @@
 package sheares.exception;
+
+/**
+ * exception thrown when user input not recognised
+ */
 public class WrongInputException extends DukeException {
     private String msg;
     public WrongInputException() {

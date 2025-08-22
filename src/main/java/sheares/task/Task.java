@@ -1,4 +1,8 @@
 package sheares.task;
+
+/**
+ * abstract representation of a task, exact behaviour determined by subclasses
+ */
 abstract public class Task {
     protected String des;
     protected boolean isDone;
@@ -16,10 +20,17 @@ abstract public class Task {
         this.isDone = false;
     }
 
+    /**
+     *
+     * @return X if task is done, space otherwise
+     */
     public String getIcon() {
         return isDone ? "X" : " ";
     }
 
+    /**
+     * returns String representation that we write to data file
+     */
     abstract public String taskToStr();
 
     @Override

@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import sheares.*;
 
 import sheares.task.*;
+
+/**
+ * represents command to add to list
+ */
 public class AddCommand extends Command{
 
     String des;
