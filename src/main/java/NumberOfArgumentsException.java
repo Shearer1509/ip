@@ -1,11 +1,11 @@
-public class NumberOfArgumentsException extends Exception {
+public class NumberOfArgumentsException extends DukeException {
     private String msg;
     public NumberOfArgumentsException(String command) {
         this.msg = "    Wrong number of arguments to " + command;
     }
 
-
-    public String getMsg() {
+    @Override
+    public String getMessage() {
         return this.msg;
     }
 }

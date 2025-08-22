@@ -1,0 +1,51 @@
+import java.time.LocalDate;
+
+public class AddCommand extends Command{
+
+    String des;
+    LocalDate deadline;
+    String to;
+    String from;
+    int index;
+    public AddCommand(String des) {
+        super();
+        this.des = des;
+        this.index = 0;
+    }
+
+    public AddCommand(String des, LocalDate date) {
+        this.des = des;
+        this.deadline = date;
+        this.index = 1;
+    }
+
+    public AddCommand(String des, String from, String to) {
+        this.des = des;
+        this.to = to;
+        this.from = from;
+        this.index = 2;
+    }
+
+    @Override
+    public void execute(TaskList ls, Ui ui, Storage storage) {
+
+        Task curr = null;
+        if (this.index == 0)  {
+            curr = new Todo(this.des);
+        } else if (this.index == 1) {
+            curr = new Deadline(this.des, this.deadline);
+        } else {
+            curr = new Event(this.des, this.from, this.to);
+        }
+        ls.add(curr);
+
+
+        storage.save(ls);
+
+        System.out.println("    Got it. I've added this task:");
+        System.out.println("      " + curr);
+        System.out.println("    Now you have " + ls.size() + " tasks in the list.");
+
+
+    }
+}
