@@ -9,7 +9,7 @@ import sheares.Ui;
  */
 abstract public class Command {
 
-    boolean isExit;
+    private boolean isExit;
     public Command() {
         this.isExit = false;
     }

@@ -4,7 +4,7 @@ import sheares.*;
 
 public class ExitCommand extends Command {
 
-    public boolean isExit;
+    private boolean isExit;
     public ExitCommand() {
         super();
     }

@@ -19,8 +19,8 @@ import java.util.Scanner;
 
 public class Storage {
 
-    ArrayList<Task> ans;
-    String filePath;
+    private final ArrayList<Task> ans;
+    private final String filePath;
     public Storage(String filePath) {
         this.ans = new ArrayList<>();
         this.filePath = filePath;

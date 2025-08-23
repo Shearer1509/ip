@@ -16,11 +16,11 @@ import sheares.task.Todo;
  */
 public class AddCommand extends Command{
 
-    String des;
-    LocalDate deadline;
-    String to;
-    String from;
-    int index;
+    private final String des;
+    private LocalDate deadline;
+    private String to;
+    private String from;
+    private final int index;
     public AddCommand(String des) {
         super();
         this.des = des;

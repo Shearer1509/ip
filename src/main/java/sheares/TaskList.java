@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * helper data strcuture to store Tasks for chatbot
  */
 public class TaskList {
-    ArrayList<Task> ls;
+    private final ArrayList<Task> ls;
 
     public TaskList(ArrayList<Task> ls) {
         this.ls = ls;
