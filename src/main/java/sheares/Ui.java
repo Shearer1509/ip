@@ -12,7 +12,7 @@ public class Ui {
     }
 
     /**
-     * helper method to print seperator line
+     * helper method to print separator line
      */
     public void showLine() {
         System.out.println("    _____________________________");
