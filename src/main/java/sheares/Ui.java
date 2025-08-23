@@ -22,7 +22,7 @@ public class Ui {
      * prints welcome message
      */
     public void showWelcome() {
-        String first = "    Hello! I'm Sheares";
+        String first = "    Hello! I'm Sheares, your personal chatbot!";
         String second = "    What can i do for you?";
         this.showLine();
         System.out.println(first);
