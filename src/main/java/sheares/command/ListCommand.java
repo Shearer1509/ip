@@ -22,8 +22,5 @@ public class ListCommand extends Command {
             Task curr = ls.get(i);
             System.out.println("    " + (i + 1) + "." + curr);
         }
-
     }
-
-
 }

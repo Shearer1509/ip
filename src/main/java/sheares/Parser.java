@@ -1,6 +1,5 @@
 package sheares;
 
-
 import sheares.command.*;
 import sheares.exception.DukeException;
 import sheares.exception.NumberOfArgumentsException;

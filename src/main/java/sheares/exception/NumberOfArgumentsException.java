@@ -1,4 +1,3 @@
-
 package sheares.exception;
 
 /**
