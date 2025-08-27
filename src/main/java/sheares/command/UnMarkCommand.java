@@ -11,6 +11,11 @@ import sheares.task.Task;
 public class UnMarkCommand extends Command {
 
     private final int index;
+
+    /**
+     * Creates new UnMark Command to unmark task of that index
+     * @param index
+     */
     public UnMarkCommand(int index) {
         super();
         this.index = index;

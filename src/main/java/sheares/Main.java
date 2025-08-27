@@ -1,8 +1,6 @@
 package sheares;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.nio.channels.ClosedByInterruptException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +22,7 @@ public class Main extends Application {
             AnchorPane ap = fxmlLoader.load();
             Scene scene = new Scene(ap);
             stage.setScene(scene);
-            fxmlLoader.<MainWindow>getController().setSheares(sheares);  // inject the Duke instance
+            fxmlLoader.<MainWindow>getController().setSheares(sheares); // inject the Duke instance
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

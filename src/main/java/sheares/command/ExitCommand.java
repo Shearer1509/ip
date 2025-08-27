@@ -1,10 +1,19 @@
 package sheares.command;
 
-import sheares.*;
+import sheares.Storage;
+import sheares.TaskList;
+import sheares.Ui;
 
+/**
+ * Class to represent a command to close/exit the chatbot
+ */
 public class ExitCommand extends Command {
 
     private boolean isExit;
+
+    /**
+     * Creates command that causes program to exit/close
+     */
     public ExitCommand() {
         super();
     }

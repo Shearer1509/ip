@@ -1,7 +1,8 @@
 package sheares;
-import sheares.task.Task;
 
 import java.util.ArrayList;
+
+import sheares.task.Task;
 
 /**
  * helper data strcuture to store Tasks for chatbot
@@ -13,12 +14,12 @@ public class TaskList {
         this.ls = ls;
     }
 
-    public int size() {
-        return this.ls.size();
-    }
-
     public TaskList() {
         this.ls = new ArrayList<>();
+    }
+
+    public int size() {
+        return this.ls.size();
     }
 
     public void add(Task task) {

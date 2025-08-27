@@ -8,10 +8,15 @@ import sheares.task.Task;
 /**
  * represents command to find tasks based on keyword
  */
-public class FindCommand extends Command{
+public class FindCommand extends Command {
 
     private String keyWord;
     private int found;
+
+    /**
+     * Creates a new FindCommand for the selected keyWord
+     * @param keyWord
+     */
     public FindCommand(String keyWord) {
         this.keyWord = keyWord;
         this.found = 0;

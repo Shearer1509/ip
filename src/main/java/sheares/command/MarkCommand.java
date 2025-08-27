@@ -1,6 +1,5 @@
 package sheares.command;
 
-
 import sheares.Storage;
 import sheares.TaskList;
 import sheares.Ui;
@@ -12,6 +11,11 @@ import sheares.task.Task;
 public class MarkCommand extends Command {
 
     private final int index;
+
+    /**
+     * Creates new MarkCommand to mark task of that index as done
+     * @param index
+     */
     public MarkCommand(int index) {
         super();
         this.index = index;
