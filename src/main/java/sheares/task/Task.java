@@ -3,10 +3,14 @@ package sheares.task;
 /**
  * abstract representation of a task, exact behaviour determined by subclasses
  */
-abstract public class Task {
+public abstract class Task {
     protected String des;
     protected boolean isDone;
 
+    /**
+     * constuctor for a basic Task
+     * @param des
+     */
     public Task(String des) {
         this.des = des;
         this.isDone = false;
@@ -21,8 +25,8 @@ abstract public class Task {
     }
 
     /**
-     *
-     * @return X if task is done, space otherwise
+     * helper that returns X if task is done, space otherwise
+     * @return
      */
     public String getIcon() {
         return isDone ? "X" : " ";
@@ -36,7 +40,7 @@ abstract public class Task {
     /**
      * returns String representation that we write to data file
      */
-    abstract public String taskToStr();
+    public abstract String taskToStr();
 
     @Override
     public String toString() {

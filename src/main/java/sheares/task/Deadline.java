@@ -6,9 +6,15 @@ import java.time.format.DateTimeFormatter;
 /**
  * represents a Deadline Type Task
  */
-public class Deadline extends Task{
+public class Deadline extends Task {
 
     private final LocalDate deadline;
+
+    /**
+     * Constructor for new deadline with des and a deadline represented as LocalDate as parameters
+     * @param des
+     * @param deadline
+     */
     public Deadline(String des, LocalDate deadline) {
         super(des);
         this.deadline = deadline;
@@ -16,8 +22,8 @@ public class Deadline extends Task{
 
     @Override
     public String toString() {
-        String formatted_deadline = this.deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
-        return "[D]" + super.toString() + " (by: " + formatted_deadline + ")";
+        String formattedDeadline = this.deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
+        return "[D]" + super.toString() + " (by: " + formattedDeadline + ")";
     }
 
     /**

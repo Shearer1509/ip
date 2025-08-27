@@ -30,8 +30,7 @@ public class ListCommand extends Command {
         s += "    Here are the tasks in your list: \n";
         for (int i = 0; i < ls.size(); i++) {
             Task curr = ls.get(i);
-            s += "      " + (i+1) + "." + curr + "\n";
-            //System.out.println("    " + (i + 1) + "." + curr);
+            s += "      " + (i + 1) + "." + curr + "\n";
         }
         return s;
     }

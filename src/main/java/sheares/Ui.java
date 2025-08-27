@@ -34,6 +34,9 @@ public class Ui {
         System.out.println(message);
     }
 
+    /**
+     * Shows message to user if no existing data (first time)
+     */
     public void showLoadingError() {
         this.showLine();
         System.out.println("    This is your first time using this chatbot");

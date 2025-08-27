@@ -3,10 +3,7 @@ package sheares.command;
 import sheares.Storage;
 import sheares.TaskList;
 import sheares.Ui;
-import sheares.task.Deadline;
-import sheares.task.Event;
 import sheares.task.Task;
-import sheares.task.Todo;
 
 /**
  * represents command to delete a task from the list
@@ -14,6 +11,11 @@ import sheares.task.Todo;
 public class DeleteCommand extends Command {
 
     private final int index;
+
+    /**
+     * Creates a new deleteCommand for that index
+     * @param index
+     */
     public DeleteCommand(int index) {
         super();
         this.index = index;
@@ -61,9 +63,6 @@ public class DeleteCommand extends Command {
         Task task = ls.get(this.index);
         ls.delete(this.index);
         storage.save(ls);
-//        System.out.println("    Noted. I've removed this task:");
-//        System.out.println("      " + task);
-//        System.out.println("    Now you have " + ls.size() + " tasks in the list.");
         String s = "";
         s += "    Noted. I've removed this task: \n";
         s += "      " + task + "\n";

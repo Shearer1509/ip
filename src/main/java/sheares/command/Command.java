@@ -7,7 +7,7 @@ import sheares.Ui;
 /**
  * abstract class that represents a command, execution differs based on subclass
  */
-abstract public class Command {
+public abstract class Command {
 
     private boolean isExit;
     public Command() {
@@ -23,6 +23,6 @@ abstract public class Command {
      * @param ui
      * @param storage
      */
-    abstract public void execute(TaskList ls, Ui ui, Storage storage);
-    abstract public String executeWithString(TaskList ls, Ui ui, Storage storage);
+    public abstract void execute(TaskList ls, Ui ui, Storage storage);
+    public abstract String executeWithString(TaskList ls, Ui ui, Storage storage);
 }

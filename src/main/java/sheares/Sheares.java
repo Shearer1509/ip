@@ -1,9 +1,9 @@
 package sheares;
 
+import java.time.format.DateTimeParseException;
+
 import sheares.command.Command;
 import sheares.exception.DukeException;
-
-import java.time.format.DateTimeParseException;
 
 /**
  * Entry point of the chatbot
@@ -15,6 +15,10 @@ public class Sheares {
     private Ui ui;
     private boolean isFirstTime;
 
+    /**
+     * Constructor for new chatbot instance with filePath to existing data
+     * @param filePath
+     */
     public Sheares(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
@@ -27,6 +31,9 @@ public class Sheares {
 
     }
 
+    /**
+     * Runs the cli version of the chatbot
+     */
     public void run() {
         ui.showWelcome();
         boolean isExit = false;
@@ -47,6 +54,11 @@ public class Sheares {
         }
     }
 
+    /**
+     * Provides the string form of chatbot output for GUI version
+     * @param input
+     * @return
+     */
     public String getResponse(String input) {
         String init = "";
         //init += "    Sheares processing your input: " + input + "\n";

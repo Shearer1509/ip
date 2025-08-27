@@ -1,11 +1,5 @@
 package sheares;
 
-import sheares.exception.DukeException;
-import sheares.task.Deadline;
-import sheares.task.Event;
-import sheares.task.Task;
-import sheares.task.Todo;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,11 +10,23 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
+import sheares.exception.DukeException;
+import sheares.task.Deadline;
+import sheares.task.Event;
+import sheares.task.Task;
+import sheares.task.Todo;
 
+/**
+ * class that stores existing data
+ */
 public class Storage {
-
     private final ArrayList<Task> ans;
     private final String filePath;
+
+    /**
+     * Constructor for storage object that stores existing data
+     * @param filePath
+     */
     public Storage(String filePath) {
         this.ans = new ArrayList<>();
         this.filePath = filePath;
@@ -45,8 +51,8 @@ public class Storage {
     }
 
     /**
-     *
-     * @return an ArrayList of Tasks that represents the past data of the chatbot that was saved
+     * retruns an ArrayList of Tasks that represents the past data of the chatbot that was saved
+     * @return
      * @throws DukeException
      */
     public ArrayList<Task> load() throws DukeException {

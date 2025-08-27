@@ -3,9 +3,16 @@ package sheares.task;
 /**
  * represents an Event Type Task
  */
-public class Event extends Task{
+public class Event extends Task {
     private final String from;
     private final String to;
+
+    /**
+     * Constructor for an Event using des, start and end as parameters
+     * @param des
+     * @param from
+     * @param to
+     */
     public Event(String des, String from, String to) {
         super(des);
         this.from = from;
@@ -23,8 +30,8 @@ public class Event extends Task{
     public String taskToStr() {
         String num = super.isDone ? "1" : "0";
         StringBuilder sb = new StringBuilder();
-        sb.append('E').append(" | ").append(num).append(" | ").append(super.des).append(" | ").
-                append(this.from).append('-').append(this.to);
+        sb.append('E').append(" | ").append(num).append(" | ").append(super.des).append(" | ")
+            .append(this.from).append('-').append(this.to);
         return sb.toString();
     }
 }

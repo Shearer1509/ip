@@ -11,9 +11,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.IOException;
-import java.nio.channels.ClosedByInterruptException;
-
 /**
  * Controller for the main GUI.
  */
@@ -32,6 +29,9 @@ public class MainWindow extends AnchorPane {
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
     private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
 
+    /**
+     * Initializes the entry layout + initial message of the chatbot
+     */
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
@@ -70,7 +70,7 @@ public class MainWindow extends AnchorPane {
             pause.setOnFinished(e -> {
                 // Get the stage from any node (e.g., userInput) and close it
                 Stage stage = (Stage) userInput.getScene().getWindow();
-                stage.close();  // Equivalent to clicking "X"
+                stage.close(); // Equivalent to clicking "X"
             });
             pause.play();
         }
