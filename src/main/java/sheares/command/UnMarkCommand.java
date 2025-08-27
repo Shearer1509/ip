@@ -24,4 +24,15 @@ public class UnMarkCommand extends Command {
         System.out.println("    OK, I've marked this task as not done yet:");
         System.out.println("      " + curr);
     }
+
+    @Override
+    public String executeWithString(TaskList ls, Ui ui, Storage storage) {
+        Task curr = ls.get(this.index);
+        curr.unmark();
+        storage.save(ls);
+        String s = "";
+        s += "    OK, I've marked this task as not done yet: " + "\n";
+        s += "      " + curr + "\n";
+        return s;
+    }
 }

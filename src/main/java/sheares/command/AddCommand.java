@@ -54,11 +54,23 @@ public class AddCommand extends Command{
 
 
         storage.save(ls);
-
         System.out.println("    Got it. I've added this task:");
         System.out.println("      " + curr);
         System.out.println("    Now you have " + ls.size() + " tasks in the list.");
+    }
 
-
+    @Override
+    public String executeWithString(TaskList ls, Ui ui, Storage storage) {
+        Task curr = null;
+        if (this.index == 0)  {
+            curr = new Todo(this.des);
+        } else if (this.index == 1) {
+            curr = new Deadline(this.des, this.deadline);
+        } else {
+            curr = new Event(this.des, this.from, this.to);
+        }
+        ls.add(curr);
+        storage.save(ls);
+        return "    Got it. I've added this task: \n" + "      " + curr + "\n" + "    Now you have " + ls.size() + " tasks in the list.";
     }
 }

@@ -24,4 +24,5 @@ abstract public class Command {
      * @param storage
      */
     abstract public void execute(TaskList ls, Ui ui, Storage storage);
+    abstract public String executeWithString(TaskList ls, Ui ui, Storage storage);
 }
