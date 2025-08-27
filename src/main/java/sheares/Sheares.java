@@ -13,6 +13,7 @@ public class Sheares {
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
+    private boolean isFirstTime;
 
     public Sheares(String filePath) {
         ui = new Ui();
@@ -23,6 +24,7 @@ public class Sheares {
             ui.showLoadingError();
             tasks = new TaskList();
         }
+
     }
 
     public void run() {
@@ -43,6 +45,24 @@ public class Sheares {
                 ui.showLine();
             }
         }
+    }
+
+    public String getResponse(String input) {
+        String init = "";
+        //init += "    Sheares processing your input: " + input + "\n";
+        boolean success = false;
+        try {
+            Command c = Parser.parse(input);
+            init += c.executeWithString(tasks, ui, storage);
+        } catch (DukeException e) {
+            init += e.getMessage() + "\n";
+        } catch (DateTimeParseException e) {
+            init += "    Pls key in valid deadline format yyyy-MM-dd" + "\n";
+            //ui.showError("    Pls key in valid deadline format yyyy-MM-dd");
+        } finally {
+            init += "\n";
+        }
+        return init;
     }
 
     public static void main(String[] args) {

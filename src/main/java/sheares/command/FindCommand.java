@@ -27,4 +27,20 @@ public class FindCommand extends Command{
             }
         }
     }
+
+    @Override
+    public String executeWithString(TaskList list, Ui ui, Storage storage) {
+        String s = "";
+        s += "    Here are the matching tasks in your list: \n";
+        //System.out.println("    Here are the matching tasks in your list:");
+        for (int i = 0; i < list.size(); i++) {
+            Task curr = list.get(i);
+            if (curr.getDescription().contains(this.keyWord)) {
+                //System.out.println("    " + (this.found + 1) + "." + curr);
+                s += "      " + (this.found + 1) + "." + curr + "\n";
+                this.found++;
+            }
+        }
+        return s;
+    }
 }

@@ -3,7 +3,10 @@ package sheares.command;
 import sheares.Storage;
 import sheares.TaskList;
 import sheares.Ui;
+import sheares.task.Deadline;
+import sheares.task.Event;
 import sheares.task.Task;
+import sheares.task.Todo;
 
 /**
  * represents command to delete a task from the list
@@ -38,5 +41,33 @@ public class DeleteCommand extends Command {
         System.out.println("    Noted. I've removed this task:");
         System.out.println("      " + task);
         System.out.println("    Now you have " + ls.size() + " tasks in the list.");
+    }
+
+    @Override
+    public String executeWithString(TaskList ls, Ui ui, Storage storage) {
+        if (ls.size() == 0) {
+            //System.out.println("    There are no tasks to delete");
+            return "    There are no tasks to delete";
+        }
+        if (this.index < 0) {
+
+            //System.out.println("    Input is negative: Pls pick a number from 1 to " + ls.size());
+            return "    Input is negative: Pls pick a number from 1 to " + ls.size();
+        }
+        if (this.index >= ls.size()) {
+            //System.out.println("    Input exceeds number of tasks: Pls pick a number from 1 to " + ls.size());
+            return "    Input exceeds number of tasks: Pls pick a number from 1 to " + ls.size();
+        }
+        Task task = ls.get(this.index);
+        ls.delete(this.index);
+        storage.save(ls);
+//        System.out.println("    Noted. I've removed this task:");
+//        System.out.println("      " + task);
+//        System.out.println("    Now you have " + ls.size() + " tasks in the list.");
+        String s = "";
+        s += "    Noted. I've removed this task: \n";
+        s += "      " + task + "\n";
+        s += "    Now you have " + ls.size() + " tasks in the list";
+        return s;
     }
 }

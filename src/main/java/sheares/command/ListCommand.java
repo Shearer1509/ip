@@ -23,4 +23,16 @@ public class ListCommand extends Command {
             System.out.println("    " + (i + 1) + "." + curr);
         }
     }
+
+    @Override
+    public String executeWithString(TaskList ls, Ui ui, Storage storage) {
+        String s = "";
+        s += "    Here are the tasks in your list: \n";
+        for (int i = 0; i < ls.size(); i++) {
+            Task curr = ls.get(i);
+            s += "      " + (i+1) + "." + curr + "\n";
+            //System.out.println("    " + (i + 1) + "." + curr);
+        }
+        return s;
+    }
 }
