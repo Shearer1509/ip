@@ -37,6 +37,10 @@ public abstract class Task {
         return this.des;
     }
 
+    public boolean isMarked() {
+        return isDone;
+    }
+
     /**
      * returns String representation that we write to data file
      */

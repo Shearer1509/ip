@@ -103,7 +103,9 @@ public class Storage {
                 }
             }
         } catch (IOException e) {
-            System.err.println("lol idk man");
+            System.err.println("Cant read file, file is corrupted");
+        } finally {
+            sc.close();
         }
         return this.ans;
     }
