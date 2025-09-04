@@ -28,6 +28,7 @@ public class MarkCommand extends Command {
         storage.save(ls);
         System.out.println("    Nice! I've marked this task as done:");
         System.out.println("      " + curr);
+        assert curr.isMarked();
     }
 
     @Override
@@ -38,6 +39,7 @@ public class MarkCommand extends Command {
         String s = "";
         s += "    Nice! I've marked this task as done: \n";
         s += "      " + curr + "\n";
+        assert curr.isMarked();
         return s;
     }
 }

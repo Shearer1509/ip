@@ -4,6 +4,7 @@ import java.time.format.DateTimeParseException;
 
 import sheares.command.Command;
 import sheares.exception.DukeException;
+import sheares.exception.WrongInputException;
 
 /**
  * Entry point of the chatbot
@@ -39,7 +40,7 @@ public class Sheares {
         boolean isExit = false;
         while (!isExit) {
             try {
-                String fullCommand = ui.readCommand();
+                String fullCommand = ui.readCommand().trim();
                 ui.showLine(); // show the divider line ("_______")
                 Command c = Parser.parse(fullCommand);
                 c.execute(tasks, ui, storage);
@@ -52,6 +53,7 @@ public class Sheares {
                 ui.showLine();
             }
         }
+        assert isExit;
     }
 
     /**
@@ -64,6 +66,9 @@ public class Sheares {
         //init += "    Sheares processing your input: " + input + "\n";
         boolean success = false;
         try {
+            if (input.isEmpty()) {
+                throw new WrongInputException();
+            }
             Command c = Parser.parse(input);
             init += c.executeWithString(tasks, ui, storage);
         } catch (DukeException e) {

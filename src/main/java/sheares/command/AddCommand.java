@@ -72,6 +72,7 @@ public class AddCommand extends Command {
     @Override
     public String executeWithString(TaskList ls, Ui ui, Storage storage) {
         Task curr = null;
+        int expectednewSize = ls.size() + 1;
         if (this.index == 0) {
             curr = new Todo(this.des);
         } else if (this.index == 1) {
@@ -80,6 +81,7 @@ public class AddCommand extends Command {
             curr = new Event(this.des, this.from, this.to);
         }
         ls.add(curr);
+        assert expectednewSize == ls.size();
         storage.save(ls);
         return "    Got it. I've added this task: \n" + "      "
                 + curr + "\n" + "    Now you have " + ls.size() + " tasks in the list.";
