@@ -20,6 +20,7 @@ public class Parser {
      * @throws DateTimeParseException
      */
     public static Command parse(String input) throws DukeException, DateTimeParseException {
+        assert !input.isEmpty();
         String[] line = input.split(" ");
         String command = line[0];
         switch (command) {

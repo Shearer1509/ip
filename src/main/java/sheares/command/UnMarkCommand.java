@@ -28,6 +28,7 @@ public class UnMarkCommand extends Command {
         storage.save(ls);
         System.out.println("    OK, I've marked this task as not done yet:");
         System.out.println("      " + curr);
+        assert !curr.isMarked();
     }
 
     @Override
@@ -41,6 +42,7 @@ public class UnMarkCommand extends Command {
 //        s += "      " + curr + "\n";
         sb.append("    OK, I've marked this task as not done yet: " + "\n");
         sb.append("      " + curr + "\n");
+        assert !curr.isMarked();
         return sb.toString();
     }
 }

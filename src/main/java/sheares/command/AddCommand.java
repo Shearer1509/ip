@@ -78,6 +78,7 @@ public class AddCommand extends Command {
     @Override
     public String executeWithString(TaskList ls, Ui ui, Storage storage) {
         Task curr = null;
+        int expectednewSize = ls.size() + 1;
         if (this.index == 0) {
             curr = new Todo(this.des);
         } else if (this.index == 1) {
@@ -86,6 +87,7 @@ public class AddCommand extends Command {
             curr = new Event(this.des, this.from, this.to);
         }
         ls.add(curr);
+        assert expectednewSize == ls.size();
         storage.save(ls);
         StringBuilder sb = new StringBuilder();
         sb.append("    Got it. I've added this task: \n").append("      ").append(curr).append("\n")
