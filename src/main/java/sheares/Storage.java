@@ -11,10 +11,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 import sheares.exception.DukeException;
-import sheares.task.Deadline;
-import sheares.task.Event;
-import sheares.task.Task;
-import sheares.task.Todo;
+import sheares.task.*;
 
 /**
  * class that stores existing data
@@ -76,33 +73,8 @@ public class Storage {
             Scanner s = new Scanner(path);
             while (s.hasNext()) {
                 String input = s.nextLine();
-                String[] pieces = input.split(" \\| ");
-                if (pieces.length == 3) {
-                    Task t = new Todo(pieces[2]);
-                    String marked = pieces[1];
-                    if (Objects.equals(marked, "1")) {
-                        t.mark();
-                    }
-                    ans.add(t);
-                } else {
-                    if (Objects.equals(pieces[0], "D")) {
-                        Task t = new Deadline(pieces[2], LocalDate.parse(pieces[3]));
-                        String marked = pieces[1];
-                        if (Objects.equals(marked, "1")) {
-                            t.mark();
-                        }
-                        ans.add(t);
-                    } else {
-                        String check = pieces[3];
-                        String[] again = check.split("-");
-                        Task t = new Event(pieces[2], again[0], again[1]);
-                        String marked = pieces[1];
-                        if (Objects.equals(marked, "1")) {
-                            t.mark();
-                        }
-                        ans.add(t);
-                    }
-                }
+                Task t = getTask(input);
+                ans.add(t);
             }
         } catch (IOException e) {
             System.err.println("Cant read file, file is corrupted");
@@ -110,5 +82,34 @@ public class Storage {
             sc.close();
         }
         return this.ans;
+    }
+
+    private static Task getTask(String input) {
+        String[] pieces = input.split(" \\| ");
+        Task t = null;
+        if (pieces.length == 3) {
+            String description = pieces[2];
+            t = new Todo(description);
+        } else {
+            if (Objects.equals(pieces[0], "D")) {
+                String description = pieces[2];
+                String dateString = pieces[3];
+                t = new Deadline(description, LocalDate.parse(dateString));
+            } else if (Objects.equals(pieces[0], "F")) {
+                String description = pieces[2];
+                String duration = pieces[3];
+                t = new FixedDuration(description, duration);
+            } else {
+                String fromToSection = pieces[3];
+                String[] from_and_to = fromToSection.split("-");
+                String description = pieces[2];
+                t = new Event(description, from_and_to[0], from_and_to[1]);
+            }
+        }
+        String marked = pieces[1];
+        if (Objects.equals(marked, "1")) {
+            t.mark();
+        }
+        return t;
     }
 }

@@ -50,21 +50,18 @@ public class DeleteCommand extends Command {
             return "    There are no tasks to delete";
         }
         if (this.index < 0) {
-
-            //System.out.println("    Input is negative: Pls pick a number from 1 to " + ls.size());
             return "    Input is negative: Pls pick a number from 1 to " + ls.size();
         }
         if (this.index >= ls.size()) {
-            //System.out.println("    Input exceeds number of tasks: Pls pick a number from 1 to " + ls.size());
             return "    Input exceeds number of tasks: Pls pick a number from 1 to " + ls.size();
         }
         Task task = ls.get(this.index);
         ls.delete(this.index);
         storage.save(ls);
         String s = "";
-        s += "    Noted. I've removed this task: \n";
-        s += "      " + task + "\n";
-        s += "    Now you have " + ls.size() + " tasks in the list";
-        return s;
+        StringBuilder sb = new StringBuilder();
+        sb.append("    Noted. I've removed this task: \n").append("      " + task + "\n")
+                .append("    Now you have " + ls.size() + " tasks in the list");
+        return sb.toString();
     }
 }

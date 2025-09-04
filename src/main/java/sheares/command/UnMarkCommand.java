@@ -37,9 +37,6 @@ public class UnMarkCommand extends Command {
         curr.unmark();
         storage.save(ls);
         StringBuilder sb = new StringBuilder();
-        //String s = "";
-//        s += "    OK, I've marked this task as not done yet: " + "\n";
-//        s += "      " + curr + "\n";
         sb.append("    OK, I've marked this task as not done yet: " + "\n");
         sb.append("      " + curr + "\n");
         assert !curr.isMarked();
