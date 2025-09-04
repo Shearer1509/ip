@@ -1,6 +1,5 @@
-E | 0 | party | 3-6
 T | 1 | read book tmr
 T | 0 | read book
-T | 0 | drink water
 T | 0 | read book
-T | 0 | read book
+E | 0 | party | 2pm-6pm
+T | 0 | book

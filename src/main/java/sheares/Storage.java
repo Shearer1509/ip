@@ -59,7 +59,6 @@ public class Storage {
         //String filePath = "./data/duke.txt";
         Path path = Paths.get(this.filePath);
         Scanner sc = new Scanner(System.in);
-
         try {
             Path parentDir = path.getParent();
             if (parentDir != null && !Files.exists(parentDir)) {
@@ -80,14 +79,16 @@ public class Storage {
                 String[] pieces = input.split(" \\| ");
                 if (pieces.length == 3) {
                     Task t = new Todo(pieces[2]);
-                    if (Objects.equals(pieces[1], "1")) {
+                    String marked = pieces[1];
+                    if (Objects.equals(marked, "1")) {
                         t.mark();
                     }
                     ans.add(t);
                 } else {
                     if (Objects.equals(pieces[0], "D")) {
                         Task t = new Deadline(pieces[2], LocalDate.parse(pieces[3]));
-                        if (Objects.equals(pieces[1], "1")) {
+                        String marked = pieces[1];
+                        if (Objects.equals(marked, "1")) {
                             t.mark();
                         }
                         ans.add(t);
@@ -95,7 +96,8 @@ public class Storage {
                         String check = pieces[3];
                         String[] again = check.split("-");
                         Task t = new Event(pieces[2], again[0], again[1]);
-                        if (Objects.equals(pieces[1], "1")) {
+                        String marked = pieces[1];
+                        if (Objects.equals(marked, "1")) {
                             t.mark();
                         }
                         ans.add(t);
@@ -107,5 +109,4 @@ public class Storage {
         }
         return this.ans;
     }
-
 }

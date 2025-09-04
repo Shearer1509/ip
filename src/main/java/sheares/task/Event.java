@@ -28,9 +28,9 @@ public class Event extends Task {
      * returns String representation that we write to data file
      */
     public String taskToStr() {
-        String num = super.isDone ? "1" : "0";
+        String doneIndicator = super.isDone ? "1" : "0";
         StringBuilder sb = new StringBuilder();
-        sb.append('E').append(" | ").append(num).append(" | ").append(super.des).append(" | ")
+        sb.append('E').append(" | ").append(doneIndicator).append(" | ").append(super.des).append(" | ")
             .append(this.from).append('-').append(this.to);
         return sb.toString();
     }

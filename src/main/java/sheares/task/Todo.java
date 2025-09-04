@@ -19,9 +19,9 @@ public class Todo extends Task {
      */
     @Override
     public String taskToStr() {
-        String num = super.isDone ? "1" : "0";
+        String doneIndicator = super.isDone ? "1" : "0";
         StringBuilder sb = new StringBuilder();
-        sb.append('T').append(" | ").append(num).append(" | ").append(super.des);
+        sb.append('T').append(" | ").append(doneIndicator).append(" | ").append(super.des);
         return sb.toString();
     }
 

@@ -26,12 +26,16 @@ public class ListCommand extends Command {
 
     @Override
     public String executeWithString(TaskList ls, Ui ui, Storage storage) {
-        String s = "";
-        s += "    Here are the tasks in your list: \n";
+        //String s = "";
+        StringBuilder sb = new StringBuilder();
+        sb.append("    Here are the tasks in your list: \n");
+        //s += "    Here are the tasks in your list: \n";
         for (int i = 0; i < ls.size(); i++) {
             Task curr = ls.get(i);
-            s += "      " + (i + 1) + "." + curr + "\n";
+            //s += "      " + (i + 1) + "." + curr + "\n";
+            sb.append("      ").append(i + 1).append(".").append(curr).append("\n");
         }
-        return s;
+        //return s;
+        return sb.toString();
     }
 }

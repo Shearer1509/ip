@@ -29,13 +29,18 @@ public class Parser {
             return new ListCommand();
         case "mark":
             int index = Integer.parseInt(line[1]);
-            return new MarkCommand(index - 1);
+            //Since mark 8 for example corresponds to the 8th task, which is index 7
+            //of our task list, we have to take index - 1 (same for unmark and delete)
+            int mark_index = index - 1;
+            return new MarkCommand(mark_index);
         case "unmark":
             int index2 = Integer.parseInt(line[1]);
-            return new UnMarkCommand(index2 - 1);
+            int unmark_index = index2 - 1;
+            return new UnMarkCommand(unmark_index);
         case "delete":
             int index3 = Integer.parseInt(line[1]);
-            return new DeleteCommand(index3 - 1);
+            int delete_index = index3 - 1;
+            return new DeleteCommand(delete_index);
         case "find":
             if (!input.contains("find ")) {
                 throw new NumberOfArgumentsException("find");
@@ -48,8 +53,8 @@ public class Parser {
                 throw new NumberOfArgumentsException("todo");
             }
             String[] arr = input.split("todo ");
-            String info = arr[1];
-            return new AddCommand(info);
+            String taskToDo = arr[1];
+            return new AddCommand(taskToDo);
         case "deadline":
             if (!input.contains("deadline ")) {
                 throw new NumberOfArgumentsException("deadline");
@@ -60,8 +65,9 @@ public class Parser {
                 throw new NumberOfArgumentsException("deadline");
             }
             String[] arr3 = info2.split(" /by ");
+            String description = arr3[0];
             LocalDate deadline = LocalDate.parse(arr3[1]);
-            return new AddCommand(arr3[0], deadline);
+            return new AddCommand(description, deadline);
         case "event":
             if (!input.contains("event ")) {
                 throw new NumberOfArgumentsException("event");
@@ -72,13 +78,15 @@ public class Parser {
                 throw new NumberOfArgumentsException("event");
             }
             String[] arr5 = info3.split(" /from ");
-            String des = arr5[0];
+            String description2 = arr5[0];
             String rest = arr5[1];
             if (!rest.contains(" /to ")) {
                 throw new NumberOfArgumentsException("event");
             }
             String[] last = rest.split(" /to ");
-            return new AddCommand(des, last[0], last[1]);
+            String from = last[0];
+            String to = last[1];
+            return new AddCommand(description2, from, to);
         default:
             throw new WrongInputException();
         }

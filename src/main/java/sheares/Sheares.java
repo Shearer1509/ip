@@ -60,21 +60,18 @@ public class Sheares {
      * @return
      */
     public String getResponse(String input) {
-        String init = "";
-        //init += "    Sheares processing your input: " + input + "\n";
-        boolean success = false;
+        StringBuilder init = new StringBuilder();
         try {
             Command c = Parser.parse(input);
-            init += c.executeWithString(tasks, ui, storage);
+            init.append(c.executeWithString(tasks, ui, storage));
         } catch (DukeException e) {
-            init += e.getMessage() + "\n";
+            init.append(e.getMessage()).append("\n");
         } catch (DateTimeParseException e) {
-            init += "    Pls key in valid deadline format yyyy-MM-dd" + "\n";
-            //ui.showError("    Pls key in valid deadline format yyyy-MM-dd");
+            init.append("    Pls key in valid deadline format yyyy-MM-dd" + "\n");
         } finally {
-            init += "\n";
+            init.append("\n");
         }
-        return init;
+        return init.toString();
     }
 
     public static void main(String[] args) {
