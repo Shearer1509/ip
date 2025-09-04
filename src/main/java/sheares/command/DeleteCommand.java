@@ -46,7 +46,6 @@ public class DeleteCommand extends Command {
     @Override
     public String executeWithString(TaskList ls, Ui ui, Storage storage) {
         if (ls.size() == 0) {
-            //System.out.println("    There are no tasks to delete");
             return "    There are no tasks to delete";
         }
         if (this.index < 0) {
@@ -60,8 +59,9 @@ public class DeleteCommand extends Command {
         storage.save(ls);
         String s = "";
         StringBuilder sb = new StringBuilder();
-        sb.append("    Noted. I've removed this task: \n").append("      " + task + "\n")
-                .append("    Now you have " + ls.size() + " tasks in the list");
+        sb.append("    Noted. I've removed this task: \n").append("      ")
+                .append(task).append("\n").append("    Now you have ")
+                .append(ls.size()).append(" tasks in the list");
         return sb.toString();
     }
 }

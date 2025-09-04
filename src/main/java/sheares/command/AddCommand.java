@@ -5,7 +5,12 @@ import java.time.LocalDate;
 import sheares.Storage;
 import sheares.TaskList;
 import sheares.Ui;
-import sheares.task.*;
+import sheares.task.Deadline;
+import sheares.task.Event;
+import sheares.task.FixedDuration;
+import sheares.task.Task;
+import sheares.task.Todo;
+
 
 /**
  * Represents a new command to add task to list
@@ -88,7 +93,7 @@ public class AddCommand extends Command {
     @Override
     public String executeWithString(TaskList ls, Ui ui, Storage storage) {
         Task curr = null;
-        int expectednewSize = ls.size() + 1;
+        int expectedNewSize = ls.size() + 1;
         switch (this.index) {
         case 0:
             curr = new Todo(this.des);
@@ -106,7 +111,7 @@ public class AddCommand extends Command {
             break;
         }
         ls.add(curr);
-        assert expectednewSize == ls.size();
+        assert expectedNewSize == ls.size();
         storage.save(ls);
         StringBuilder sb = new StringBuilder();
         sb.append("    Got it. I've added this task: \n").append("      ").append(curr).append("\n")

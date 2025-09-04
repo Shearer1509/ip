@@ -3,7 +3,14 @@ package sheares;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
-import sheares.command.*;
+import sheares.command.AddCommand;
+import sheares.command.Command;
+import sheares.command.DeleteCommand;
+import sheares.command.ExitCommand;
+import sheares.command.FindCommand;
+import sheares.command.ListCommand;
+import sheares.command.MarkCommand;
+import sheares.command.UnMarkCommand;
 import sheares.exception.DukeException;
 import sheares.exception.NumberOfArgumentsException;
 import sheares.exception.WrongInputException;
@@ -32,16 +39,16 @@ public class Parser {
             int index = Integer.parseInt(line[1]);
             //Since mark 8 for example corresponds to the 8th task, which is index 7
             //of our task list, we have to take index - 1 (same for unmark and delete)
-            int mark_index = index - 1;
-            return new MarkCommand(mark_index);
+            int markIndex = index - 1;
+            return new MarkCommand(markIndex);
         case "unmark":
             int index2 = Integer.parseInt(line[1]);
-            int unmark_index = index2 - 1;
-            return new UnMarkCommand(unmark_index);
+            int unmarkIndex = index2 - 1;
+            return new UnMarkCommand(unmarkIndex);
         case "delete":
             int index3 = Integer.parseInt(line[1]);
-            int delete_index = index3 - 1;
-            return new DeleteCommand(delete_index);
+            int deleteIndex = index3 - 1;
+            return new DeleteCommand(deleteIndex);
         case "find":
             if (!input.contains("find ")) {
                 throw new NumberOfArgumentsException("find");

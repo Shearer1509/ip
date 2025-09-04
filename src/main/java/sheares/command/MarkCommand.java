@@ -38,7 +38,7 @@ public class MarkCommand extends Command {
         storage.save(ls);
         StringBuilder sb = new StringBuilder();
         sb.append("    Nice! I've marked this task as done: \n");
-        sb.append("      " + curr + "\n");
+        sb.append("      ").append(curr).append("\n");
         assert curr.isMarked();
         return sb.toString();
     }

@@ -11,7 +11,12 @@ import java.util.Objects;
 import java.util.Scanner;
 
 import sheares.exception.DukeException;
-import sheares.task.*;
+import sheares.task.Deadline;
+import sheares.task.Event;
+import sheares.task.FixedDuration;
+import sheares.task.Task;
+import sheares.task.Todo;
+
 
 /**
  * class that stores existing data
@@ -101,9 +106,9 @@ public class Storage {
                 t = new FixedDuration(description, duration);
             } else {
                 String fromToSection = pieces[3];
-                String[] from_and_to = fromToSection.split("-");
+                String[] fromAndTo = fromToSection.split("-");
                 String description = pieces[2];
-                t = new Event(description, from_and_to[0], from_and_to[1]);
+                t = new Event(description, fromAndTo[0], fromAndTo[1]);
             }
         }
         String marked = pieces[1];
