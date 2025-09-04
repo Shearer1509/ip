@@ -88,6 +88,19 @@ public class Parser {
             String from = last[0];
             String to = last[1];
             return new AddCommand(description2, from, to);
+        case "fixed":
+            if (!input.contains("fixed ")) {
+                throw new NumberOfArgumentsException("fixed");
+            }
+            String[] arr6 = input.split("fixed ");
+            String info4 = arr6[1];
+            if (!info4.contains(" /duration ")) {
+                throw new NumberOfArgumentsException("fixed");
+            }
+            String[] arr8 = info4.split(" /duration ");
+            String description3 = arr8[0];
+            String duration = arr8[1];
+            return new AddCommand(description3, duration);
         default:
             throw new WrongInputException();
         }

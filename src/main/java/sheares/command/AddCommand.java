@@ -5,10 +5,7 @@ import java.time.LocalDate;
 import sheares.Storage;
 import sheares.TaskList;
 import sheares.Ui;
-import sheares.task.Deadline;
-import sheares.task.Event;
-import sheares.task.Task;
-import sheares.task.Todo;
+import sheares.task.*;
 
 /**
  * Represents a new command to add task to list
@@ -19,6 +16,7 @@ public class AddCommand extends Command {
     private LocalDate deadline;
     private String to;
     private String from;
+    private String duration;
     private final int index;
 
     /**
@@ -30,7 +28,6 @@ public class AddCommand extends Command {
         this.des = des;
         this.index = 0;
     }
-
     /**
      * Creates an AddCommand for a deadline
      * @param des
@@ -52,6 +49,16 @@ public class AddCommand extends Command {
         this.index = 2;
     }
 
+    /**
+     * Creates an AddCommand for a FixedDurationTask
+     * @param des
+     */
+    public AddCommand(String des, String duration) {
+        this.des = des;
+        this.duration = duration;
+        this.index = 3;
+    }
+
     @Override
     public void execute(TaskList ls, Ui ui, Storage storage) {
         Task curr = null;
@@ -64,6 +71,9 @@ public class AddCommand extends Command {
             break;
         case 2:
             curr = new Event(this.des, this.from, this.to);
+            break;
+        case 3:
+            curr = new FixedDuration(this.des, this.duration);
             break;
         default:
             break;
@@ -79,12 +89,21 @@ public class AddCommand extends Command {
     public String executeWithString(TaskList ls, Ui ui, Storage storage) {
         Task curr = null;
         int expectednewSize = ls.size() + 1;
-        if (this.index == 0) {
+        switch (this.index) {
+        case 0:
             curr = new Todo(this.des);
-        } else if (this.index == 1) {
+            break;
+        case 1:
             curr = new Deadline(this.des, this.deadline);
-        } else {
+            break;
+        case 2:
             curr = new Event(this.des, this.from, this.to);
+            break;
+        case 3:
+            curr = new FixedDuration(this.des, this.duration);
+            break;
+        default:
+            break;
         }
         ls.add(curr);
         assert expectednewSize == ls.size();
