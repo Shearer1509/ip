@@ -31,9 +31,9 @@ public class Deadline extends Task {
      */
     @Override
     public String taskToStr() {
-        String num = super.isDone ? "1" : "0";
+        String doneIndicator = super.isDone ? "1" : "0";
         StringBuilder sb = new StringBuilder();
-        sb.append('D').append(" | ").append(num).append(" | ").append(super.des).append(" | ").append(this.deadline);
+        sb.append('D').append(" | ").append(doneIndicator).append(" | ").append(super.des).append(" | ").append(this.deadline);
         return sb.toString();
     }
 }

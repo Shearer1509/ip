@@ -36,10 +36,13 @@ public class UnMarkCommand extends Command {
         Task curr = ls.get(this.index);
         curr.unmark();
         storage.save(ls);
-        String s = "";
-        s += "    OK, I've marked this task as not done yet: " + "\n";
-        s += "      " + curr + "\n";
+        StringBuilder sb = new StringBuilder();
+        //String s = "";
+//        s += "    OK, I've marked this task as not done yet: " + "\n";
+//        s += "      " + curr + "\n";
+        sb.append("    OK, I've marked this task as not done yet: " + "\n");
+        sb.append("      " + curr + "\n");
         assert !curr.isMarked();
-        return s;
+        return sb.toString();
     }
 }

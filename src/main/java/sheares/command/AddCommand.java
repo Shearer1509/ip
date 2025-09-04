@@ -55,12 +55,18 @@ public class AddCommand extends Command {
     @Override
     public void execute(TaskList ls, Ui ui, Storage storage) {
         Task curr = null;
-        if (this.index == 0) {
+        switch (this.index) {
+        case 0:
             curr = new Todo(this.des);
-        } else if (this.index == 1) {
+            break;
+        case 1:
             curr = new Deadline(this.des, this.deadline);
-        } else {
+            break;
+        case 2:
             curr = new Event(this.des, this.from, this.to);
+            break;
+        default:
+            break;
         }
         ls.add(curr);
         storage.save(ls);
@@ -83,7 +89,9 @@ public class AddCommand extends Command {
         ls.add(curr);
         assert expectednewSize == ls.size();
         storage.save(ls);
-        return "    Got it. I've added this task: \n" + "      "
-                + curr + "\n" + "    Now you have " + ls.size() + " tasks in the list.";
+        StringBuilder sb = new StringBuilder();
+        sb.append("    Got it. I've added this task: \n").append("      ").append(curr).append("\n")
+                .append("    Now you have ").append(ls.size()).append(" tasks in the list.");
+        return sb.toString();
     }
 }

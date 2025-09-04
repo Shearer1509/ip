@@ -28,12 +28,10 @@ public class DeleteCommand extends Command {
             return;
         }
         if (this.index < 0) {
-
             System.out.println("    Input is negative: Pls pick a number from 1 to " + ls.size());
             return;
         }
         if (this.index >= ls.size()) {
-
             System.out.println("    Input exceeds number of tasks: Pls pick a number from 1 to " + ls.size());
             return;
         }
