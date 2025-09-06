@@ -1,19 +1,21 @@
 package sheares.task;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class TodoTest {
     @Test
-    public void testToString(){
+    public void testToString() {
         Task test = new Todo("play badminton");
         String res = test.toString();
         assertEquals("[T][ ] play badminton", res);
     }
 
     @Test
-    public void testTaskToStr(){
+    public void testTaskToStr() {
         Task test = new Todo("read books");
         String res = test.taskToStr();
         assertEquals("T | 0 | read books", res);
