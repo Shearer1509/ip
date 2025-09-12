@@ -1,4 +1,1 @@
-T | 1 | read book tmr
-E | 0 | party | 2pm-6pm
-F | 1 | do hw | 2 hours
-D | 0 | assg1 | 2025-09-15
+T | 0 | Find this specific task
