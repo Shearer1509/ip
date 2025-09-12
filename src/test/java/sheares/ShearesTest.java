@@ -1,20 +1,17 @@
 package sheares;
 
-import org.junit.jupiter.api.Test;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertInstanceOf;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 //these tests were generated with the help of DeepSeek
 public class ShearesTest {
@@ -54,8 +51,8 @@ public class ShearesTest {
     public void testGetResponseWithListCommand() {
         String response = sheares.getResponse("list");
         assertNotNull(response);
-        assertTrue(response.contains("Here are the tasks in your list") ||
-                response.contains("tasks in your list"));
+        assertTrue(response.contains("Here are the tasks in your list")
+                || response.contains("tasks in your list"));
     }
 
     @Test

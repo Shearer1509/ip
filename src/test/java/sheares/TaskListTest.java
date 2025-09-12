@@ -3,16 +3,14 @@ package sheares;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import sheares.task.Event;
 import sheares.task.Task;
 import sheares.task.Todo;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 
 //these tests were generated with the help of DeepSeek
 public class TaskListTest {
